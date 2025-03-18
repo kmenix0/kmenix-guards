@@ -1,9 +1,13 @@
-riskLevel = 1 -- 1 zielony / 2 pomaranczowy / 3 czerwony / 4 czarny
+riskLevel = 4 -- 1 zielony / 2 pomaranczowy / 3 czerwony / 4 czarny
 blip = {}
 security = {}
 security = {
     vehicles = {
-        `dilettante2`
+        `security11cvpi`,
+		`security14charger`,
+		`security16fpiu`,
+		`security18charger`,
+		`security20tahoe`
     },
     peds = {
         `s_m_m_security_01`,
@@ -13,7 +17,7 @@ security = {
     },
     bodyguards = {1, math.random(1,2), math.random(2,3),math.random(3,4)},
     gunTypes = {
-        `weapon_pistol`,
+        `weapon_flashlight`,
         `weapon_stungun_mp`,
         `weapon_pistol`,
         `weapon_combatpistol`
@@ -24,7 +28,8 @@ locations = {}
 locations[1] = {
     name = "Pacific Standard",
     safe = vec3(253.82, 228.12, 101.68),
-    parking = vec3(231.16, 198.65, 105.25),
+    parking = vec3(233.51, 198.24, 104.82),
+	parkingHeading = 70.57,
     blip = {
         type = 108,
         color = 25,
@@ -74,6 +79,7 @@ locations[2] = {
     name = "Fleeca Bank", -- Alta
     safe = vec3(0.0, 0.0, 0.0),
     parking = vec3(0.0, 0.0, 0.0),
+	parkingHeading = 0.0,
     blip = {
         type = 108,
         color = 2,
@@ -113,6 +119,7 @@ locations[3] = {
     name = "Fleeca Bank", -- Burton
     safe = vec3(0.0, 0.0, 0.0),
     parking = vec3(0.0, 0.0, 0.0),
+	parkingHeading = 0.0,
     blip = {
         type = 108,
         color = 2,
@@ -152,6 +159,7 @@ locations[4] = {
     name = "Fleeca Bank", -- Pillbox Hill
     safe = vec3(0.0, 0.0, 0.0),
     parking = vec3(0.0, 0.0, 0.0),
+	parkingHeading = 0.0,
     blip = {
         type = 108,
         color = 2,
@@ -191,6 +199,7 @@ locations[5] = {
     name = "Fleeca Bank", -- Rockford Hills
     safe = vec3(0.0, 0.0, 0.0),
     parking = vec3(0.0, 0.0, 0.0),
+	parkingHeading = 0.0,
     blip = {
         type = 108,
         color = 2,
@@ -230,6 +239,7 @@ locations[6] = {
     name = "Fleeca Bank", -- Great Ocean Hwy
     safe = vec3(0.0, 0.0, 0.0),
     parking = vec3(0.0, 0.0, 0.0),
+	parkingHeading = 0.0,
     blip = {
         type = 108,
         color = 2,
@@ -269,6 +279,7 @@ locations[7] = {
     name = "Fleeca Bank", -- Route 68
     safe = vec3(1176.71, 2711.92, 38.1),
     parking = vec3(1175.47, 2696.14, 37.96),
+	parkingHeading = 0.0,
     blip = {
         type = 108,
         color = 2,
@@ -308,6 +319,7 @@ locations[8] = {
     name = "Blaine County Savings Bank", -- Paleto Bay
     safe = vec3(-106.8, 6474.48, 31.63),
     parking = vec3(-121.89, 6451.69, 31.47),
+	parkingHeading = 0.0,
     blip = {
         type = 108,
         color = 25,
@@ -346,8 +358,9 @@ locations[8] = {
 }
 locations[9] = {
     name = "Vangelico Jeweller", -- Jeweller Rockford Hills
-    safe = vec3(0.0, 0.0, 0.0),
-    parking = vec3(0.0, 0.0, 0.0),
+    safe = vec3(-630.77, -229.19, 38.06),
+    parking = vec3(-672.31, -222.19, 37.07),
+	parkingHeading = 0.0,
     blip = {
         type = 617,
         color = 5,
@@ -388,6 +401,7 @@ locations[10] = {
     name = "Union Depository", -- Union Depository Pillbox Hill
     safe = vec3(0.0, 0.0, 0.0),
     parking = vec3(0.0, 0.0, 0.0),
+	parkingHeading = 0.0,
     blip = {
         type = 500,
         color = 11,

@@ -75,7 +75,6 @@ CreateThread(function()
 
             --     g=g+1
             -- end
-
             while i < locations[currentPosK]["bodyguards"][riskLevel] do
                 Wait(0)
                 choicedPed[i] = locations[currentPosK]["peds"]["models"][math.random(1,#locations[currentPosK]["peds"]["models"])]
@@ -121,7 +120,7 @@ CreateThread(function()
                     i=i+1
                 end
             end
-
+			
             if robberyInProgress==true then
                 local PlayerPedId = PlayerPedId()
                 local j = 0
@@ -174,7 +173,8 @@ CreateThread(function()
         if found then
             spawnedCar = CreateVehicle(finishCarModel, spawnPos.x, spawnPos.y, spawnPos.z, spawnHeading, true, false)
             SetVehicleEngineOn(spawnedCar, true, true, true)
-            SetVehicleSiren(spawnedCar, true)
+			SetVehicleSiren(spawnedCar, true)
+			SetVehicleHasMutedSirens(spawnedCar, true)
 
             local i = 1
             while i <= security["bodyguards"][riskLevel] do
@@ -208,7 +208,8 @@ CreateThread(function()
             Wait(10)
 
             SetDriverAbility(spawnedPed[1], 1.0)
-            TaskVehicleDriveToCoordLongrange(spawnedPed[1], spawnedCar, robberHere["parking"], 25.0, 1074528293, 5.0)
+            TaskVehicleDriveToCoordLongrange(spawnedPed[1], spawnedCar, robberHere["parking"], 15.0, 524863, 5.0)
+			SetVehicleDoorsLockedForAllPlayers(spawnedCar, true)
             local carLocation = 0
             local pedCoords = {}
             local vehicleFull = false
@@ -236,6 +237,10 @@ CreateThread(function()
 
                         j=j+1
                     end
+					
+					Wait(2500)
+					SetEntityCoords(spawnedCar, robberHere["parking"])
+					SetEntityHeading(spawnedCar, 70.57)
 
                     while p <= security["bodyguards"][riskLevel] do
                         Wait(0)
@@ -253,6 +258,7 @@ CreateThread(function()
                         Wait(0)
                         occupiedSeatsF = GetVehicleOccupancy(spawnedCar)
                         if security["bodyguards"][riskLevel] == occupiedSeatsF then
+							SetVehicleSiren(spawnedCar, false)
                             vehicleFull = true
                             Wait(2000)
                             TaskVehicleDriveWander(spawnedPed[1],spawnedCar, 15.0, 956)
@@ -288,7 +294,7 @@ CreateThread(function()
                     AddTextComponentSubstringPlayerName("Naciśnij ~INPUT_CONTEXT~ aby ~r~rozpocząć rabunek~w~ "..locations[currentPosK]["name"])
                     EndTextCommandDisplayHelp(0, false, true, 0)
                     if IsControlJustPressed(0, 38) then
-                        robberyInProgress(false)
+                        robberyInProgress()
                         startRobberyWithAlarm(locations[currentPosK])
                     end
                 end
